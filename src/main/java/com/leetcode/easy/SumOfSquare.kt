@@ -1,4 +1,4 @@
-package com.leetcode.easy;
+package com.leetcode.easy
 
 //Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
 //
@@ -15,14 +15,10 @@ package com.leetcode.easy;
 //        Input: 3
 //        Output: False
 
-public class SumOfSquare {
-    public static void main(String[] args) {
-        int c = 10;
-        judgeSquareSum(c);
-    }
-
-    public static boolean judgeSquareSum(int c) {
-        //TODO solution
-        return false;
+object SumOfSquare {
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val c = 10
+        print(Solution().judgeSquareSum(c))
     }
 }

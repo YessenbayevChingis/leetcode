@@ -11,7 +11,7 @@ class SumOfSquareTest {
     void judgeSquareSum() {
         int data = 5;
 
-        boolean actual = SumOfSquare.judgeSquareSum(data);
+        boolean actual = new Solution().judgeSquareSum(data);
 
         assertTrue(actual);
     }
@@ -20,7 +20,7 @@ class SumOfSquareTest {
     void judgeSquareSum2() {
         int data = 3;
 
-        boolean actual = SumOfSquare.judgeSquareSum(data);
+        boolean actual = new Solution().judgeSquareSum(data);;
 
         assertFalse(actual);
     }
