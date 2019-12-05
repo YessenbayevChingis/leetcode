@@ -17,12 +17,17 @@ package com.leetcode.easy;
 
 public class SumOfSquare {
     public static void main(String[] args) {
-        int c = 10;
-        judgeSquareSum(c);
+        int c = 4;
+        System.out.println(judgeSquareSum(c));
     }
 
     public static boolean judgeSquareSum(int c) {
-        //TODO solution
+        for (long i = 0; i * i <= c; i++) {
+            double j = Math.sqrt(c - i * i);
+            if (j == (int) j)
+                return true;
+        }
         return false;
     }
+
 }
