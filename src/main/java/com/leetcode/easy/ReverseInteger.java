@@ -26,12 +26,20 @@ package com.leetcode.easy;
 public class ReverseInteger {
 
     public static void main(String[] args) {
-        int a = 10;
-        System.out.println(reverse(10));
+        int a = 1534236469;
+        System.out.println(reverse(a));
     }
 
     public static int reverse(int x) {
-        //TODO solution
-        return 0;
+        boolean isNegative = x < 0;
+        x = isNegative ? x * -1 : x;
+        x = x % 10 == 0 ? x / 10 : x;
+        StringBuilder result = new StringBuilder(String.valueOf(x));
+        result = result.reverse();
+        try {
+            return isNegative ? -1 * Integer.parseInt(result.toString()) : Integer.parseInt(result.toString());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 }

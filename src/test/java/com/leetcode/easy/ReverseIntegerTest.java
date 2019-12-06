@@ -20,4 +20,9 @@ class ReverseIntegerTest {
     void reverse3() {
         assertEquals(21, ReverseInteger.reverse(120));
     }
+
+    @Test
+    void reverse4() {
+        assertEquals(0, ReverseInteger.reverse(1534236469));
+    }
 }
