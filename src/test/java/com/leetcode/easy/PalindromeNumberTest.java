@@ -21,4 +21,14 @@ class PalindromeNumberTest {
     void isPalindrome3() {
         assertFalse(PalindromeNumber.isPalindrome(10));
     }
+
+    @Test
+    void isPalindrome4() {
+        assertTrue(PalindromeNumber.isPalindrome(0));
+    }
+
+    @Test
+    void isPalindrome5() {
+        assertFalse(PalindromeNumber.isPalindrome(-1));
+    }
 }

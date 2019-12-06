@@ -29,12 +29,55 @@ package com.leetcode.easy;
 public class PalindromeNumber {
 
     public static void main(String[] args) {
-        int data = 10;
+//        System.out.println(123 / 100);
+        int data = 1221;
         System.out.println(isPalindrome(data));
     }
 
     public static boolean isPalindrome(int x) {
-        //TODO solution
-        return false;
+        if (x < 0) {
+            return false;
+        }
+
+        if (x / 10 == 0) {
+            return true;
+        }
+
+        int stepFromEnd = sizeOfDigit(x) / 10;
+        int stepFromFront = sizeOfDigit(x);
+
+
+        if (x / stepFromFront != x % stepFromEnd) {
+            System.out.println(x / stepFromFront);
+            System.out.println(x % stepFromEnd);
+            return false;
+        }
+
+        stepFromFront /= 10;
+        stepFromEnd *= 10;
+
+        int temp = 10;
+        for (int i = 1; i < x / 2; i++) {
+            if (x / stepFromFront % temp != x % stepFromEnd / temp) {
+                System.out.println(x / stepFromFront % temp);
+                System.out.println(x % stepFromEnd / temp);
+                System.out.println(i);
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+    private static int sizeOfDigit(int digit) {
+        int result = 1;
+
+        for (int i = 0; digit != 0; ++i) {
+            digit /= 10;
+            result *= 10;
+        }
+
+        return result / 10;
     }
 }
