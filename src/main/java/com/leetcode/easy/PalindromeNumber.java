@@ -29,9 +29,7 @@ package com.leetcode.easy;
 public class PalindromeNumber {
 
     public static void main(String[] args) {
-//        System.out.println(123 / 100);
-        int data = 1221;
-        System.out.println(isPalindrome(data));
+        System.out.println(isPalindrome(222222));
     }
 
     public static boolean isPalindrome(int x) {
@@ -43,41 +41,63 @@ public class PalindromeNumber {
             return true;
         }
 
-        int stepFromEnd = sizeOfDigit(x) / 10;
-        int stepFromFront = sizeOfDigit(x);
+        int size = (int) Math.ceil(Math.log10(x));
+        int tempForFront = countOfZeroes(size - 1);
 
 
-        if (x / stepFromFront != x % stepFromEnd) {
-            System.out.println(x / stepFromFront);
-            System.out.println(x % stepFromEnd);
+        if (x / tempForFront != x % 10) {
             return false;
         }
 
-        stepFromFront /= 10;
-        stepFromEnd *= 10;
+        tempForFront /= 10;
+        int tempForEnd = 100;
+        int tempForEnd2 = 10;
 
-        int temp = 10;
-        for (int i = 1; i < x / 2; i++) {
-            if (x / stepFromFront % temp != x % stepFromEnd / temp) {
-                System.out.println(x / stepFromFront % temp);
-                System.out.println(x % stepFromEnd / temp);
-                System.out.println(i);
+
+        for (int i = 1; i < size / 2; i++) {
+            if (x / tempForFront % 10 != x % tempForEnd / tempForEnd2) {
                 return false;
             }
+
+            tempForFront /= 10;
+            tempForEnd *= 10;
+            tempForEnd2 *= 10;
         }
-
-
         return true;
     }
 
+    public static boolean solutionFromLeetCode(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int result = 0;
+        while (result < x) {
+            result = result * 10 + x % 10;
+            x /= 10;
+        }
+
+        return x == result || x == result / 10;
+    }
+
     private static int sizeOfDigit(int digit) {
+        int result = 0;
+
+        while (digit != 0) {
+            result++;
+            digit /= 10;
+        }
+
+        return result;
+    }
+
+    private static int countOfZeroes(int count) {
         int result = 1;
 
-        for (int i = 0; digit != 0; ++i) {
-            digit /= 10;
+        for (int i = 0; i < count; i++) {
             result *= 10;
         }
 
-        return result / 10;
+        return result;
     }
 }
