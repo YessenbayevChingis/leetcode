@@ -80,17 +80,6 @@ public class PalindromeNumber {
         return x == result || x == result / 10;
     }
 
-    private static int sizeOfDigit(int digit) {
-        int result = 0;
-
-        while (digit != 0) {
-            result++;
-            digit /= 10;
-        }
-
-        return result;
-    }
-
     private static int countOfZeroes(int count) {
         int result = 1;
 
